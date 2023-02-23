@@ -1,0 +1,2 @@
+javaruntime adobereader teracopy teamviewer googleearthpro vlc googlechrome dropbox 7zip
+choco install eset-nod32-antivirus --ignore-checksums
