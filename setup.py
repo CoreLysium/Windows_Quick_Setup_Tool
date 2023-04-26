@@ -217,7 +217,7 @@ while not option == '0':
 
                 subprocess.call('powershell Set-ExecutionPolicy AllSigned')
                 subprocess.call("powershell Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))")
-                subprocess.call('RefreshEnv.cmd')
+                subprocess.call('$env:ChocolateyInstall = Convert-Path "$((Get-Command choco).Path)\..\.."\nImport-Module "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"\nrefreshenv')
                 subprocess.call('choco feature enable -n=allowGlobalConfirmation')
                 subprocess.call('choco install ' + textfile.readline())
                 
